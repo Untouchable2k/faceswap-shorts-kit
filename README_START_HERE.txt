@@ -115,7 +115,27 @@ YOUTUBE RULES (ignore these and your channel can get struck)
 -------------------------------------------------------------------------------
 TROUBLESHOOTING
 -------------------------------------------------------------------------------
+Windows: setup now checks your folder location, free disk space and internet
+before doing anything, and saves its progress to setup_log.txt (in this folder)
+so you can paste it, together with the error text, when asking for help.
 "path contains a space"  -> move the folder (e.g. C:\faceswap) and rerun setup.
+"inside OneDrive" warning -> OneDrive can lock files mid-download and sync the
+    huge model files, which breaks setup. Move the folder outside OneDrive
+    (e.g. C:\faceswap), not just outside Desktop/Downloads.
+"non-English/accented characters" warning -> some Python/AI tools still
+    mishandle these in a path. If setup fails strangely, move the folder to a
+    simple path like C:\faceswap.
+"only X GB free" -> free up space or pick a drive with 20+ GB free; the kit can
+    be told to continue anyway but may fail partway through a big download.
+"can't reach github.com" -> check your internet connection, VPN, firewall or
+    antivirus (some block curl.exe), then rerun setup_windows.bat.
+Windows: antivirus flags a downloaded file or slows setup to a crawl -> this is
+    a false positive on an unsigned installer/model file; allow it or add this
+    kit's folder to your antivirus exclusions, then rerun setup.
+Windows: a firewall prompt appears when Studio starts -> allow access on
+    "Private networks" so the browser can reach http://127.0.0.1:7860.
+Windows: start completely fresh with one click -> double-click RESET_WINDOWS.bat
+    (deletes tools/facefusion only; clips/me/output are kept), then rerun setup.
 "CHECK FAILED ... wanted CUDAExecutionProvider" (NVIDIA):
     - update the NVIDIA driver (version 550 or newer), reboot, rerun setup.
     - still failing: run setup again with "cpu" (slow but works), or on
@@ -151,7 +171,8 @@ Studio started twice / old tabs dead -> just start it again: every start
     doing), then opens fresh at http://127.0.0.1:7860. Close old browser tabs.
     To run two on purpose: set STUDIO_KEEP_OTHERS=1 and GRADIO_SERVER_PORT=7861.
 Setup interrupted -> just run the setup script again; it continues.
-Start completely fresh -> delete the "tools" and "facefusion" folders, rerun setup.
+Start completely fresh -> Windows: double-click RESET_WINDOWS.bat, then rerun
+    setup. Linux: delete the "tools" and "facefusion" folders, rerun setup.
 
 -------------------------------------------------------------------------------
 FOR AI ASSISTANTS (paste this whole file into ChatGPT/Claude/etc. for help)
@@ -178,6 +199,11 @@ LAYOUT (all paths relative to the kit folder):
                        yt-dlp needs for YouTube), yt-dlp; for cuda also
                        conda-forge cuda-runtime=12.8 + cudnn=9
   tools/mode.txt       chosen backend (cuda/cpu/directml/rocm/openvino)
+  setup_log.txt        Windows only: timestamped progress from the last
+                       setup_windows.bat run, for troubleshooting
+  RESET_WINDOWS.bat    Windows only: deletes tools/facefusion (asks first) so
+                       setup_windows.bat can rebuild cleanly; clips/me/output
+                       are never touched
   facefusion/          FaceFusion 3.9.2 source (github.com/facefusion/facefusion),
                        installed with `python install.py cuda@12` (onnxruntime-gpu
                        1.24.4) or default/directml/rocm/openvino.
@@ -232,5 +258,5 @@ HOW TO HELP: ask the user for OS, GPU model + VRAM, and the exact error text.
 SHARING THIS KIT
 -------------------------------------------------------------------------------
 Share dist/faceswap_kit.zip (about 7 MB: scripts, guides, example faces).
-To rebuild it, zip everything EXCEPT tools, facefusion, clips, me, output
-(setup rebuilds tools + facefusion; the rest is personal).
+To rebuild it, zip everything EXCEPT tools, facefusion, clips, me, output,
+setup_log.txt (setup rebuilds tools + facefusion; the rest is personal/local).

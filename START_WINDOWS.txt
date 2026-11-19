@@ -46,17 +46,27 @@ STEP 4 - Make a Short (the Studio)
 - The first swap downloads the AI models (~1-2 GB), so it takes longer once.
 
 IF SOMETHING GOES WRONG
+- Setup now checks your folder, free disk space and internet connection before
+  doing anything, and warns if the folder is inside OneDrive (OneDrive syncing
+  can break a setup this size). It also saves progress to setup_log.txt in
+  C:\faceswap, which you can paste when asking for help.
 - "CHECK FAILED" with NVIDIA: update the driver (step 1), restart, run
   setup_windows.bat again (it continues where it stopped).
   Still failing: open a Command Prompt in C:\faceswap and run
       setup_windows.bat directml
   (works on any modern graphics card, a bit slower).
-- Setup stopped half-way (internet dropped etc.): just run it again.
-- Start completely fresh: delete C:\faceswap\tools and C:\faceswap\facefusion,
-  run setup_windows.bat again.
-- Antivirus blocks a download: allow it, or pause the antivirus during setup.
+- Setup stopped half-way (internet dropped etc.): just run it again; downloads
+  now retry automatically on a flaky connection too.
+- Start completely fresh: double-click RESET_WINDOWS.bat in C:\faceswap (it
+  asks first; your clips/photos/output are never touched), then run
+  setup_windows.bat again.
+- Antivirus blocks a download or slows setup to a crawl: allow it, or add
+  C:\faceswap to your antivirus exclusions, then rerun setup.
 - Browser does not open: go to http://127.0.0.1:7860 yourself.
-- Ask an AI for help: paste README_START_HERE.txt plus the exact error
-  message into ChatGPT / Claude. The README has a section written for AI.
+- A Windows Firewall prompt appears when Studio starts: allow it on "Private
+  networks" so your browser can reach the Studio.
+- Ask an AI for help: paste README_START_HERE.txt, setup_log.txt, and the
+  exact error message into ChatGPT / Claude. The README has a section
+  written for AI.
 
 REMEMBER WHEN UPLOADING TO YOUTUBE: set "Altered or synthetic content" = Yes.

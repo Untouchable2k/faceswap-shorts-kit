@@ -13,6 +13,8 @@ Put **your face** on the person in a video clip and get a vertical **1080×1920 
 New to this on Windows? Follow **[START_WINDOWS.txt](START_WINDOWS.txt)**, which walks you through it step by step.
 Everything else, including troubleshooting and a section for AI assistants, is in **[README_START_HERE.txt](README_START_HERE.txt)**.
 
+Windows setup checks your folder location, free disk space and internet connection up front, retries flaky downloads, and logs its progress to `setup_log.txt`. Want to start over? Double-click `RESET_WINDOWS.bat` (your clips/photos/output are never touched).
+
 ## The Studio
 
 1. **Get video:** paste a link (YouTube, TikTok, Instagram, X, Reddit… 1000+ sites) or upload a file.

@@ -1,6 +1,7 @@
 # Installed by the setup scripts (~10 GB) - rebuilt on every machine
 tools/
 facefusion/
+setup_log.txt
 
 # Personal: your videos, your face photos, your results
 clips/*
