@@ -1,0 +1,62 @@
+FACE-SWAP KIT  -  WINDOWS: FROM ZERO TO YOUR FIRST SHORT
+========================================================
+
+YOU NEED
+- Windows 10 (version 1803 or newer) or Windows 11
+- About 20 GB free disk space and an internet connection
+- Best: an NVIDIA graphics card (RTX 20xx or newer, 8 GB+ memory).
+  AMD / Intel graphics also work (slower). No graphics card = very slow.
+- No admin rights needed. Nothing is installed outside the kit folder.
+
+STEP 1 - Update your graphics driver (NVIDIA only, 5 minutes)
+- Go to nvidia.com/drivers (or open the NVIDIA app / GeForce Experience),
+  install the newest "Game Ready" or "Studio" driver, then RESTART the PC.
+  RTX 50xx cards need driver 572 or newer.
+
+STEP 2 - Put the kit in the right place
+- Copy faceswap_kit.zip to the Windows PC (USB stick, Google Drive, email...).
+- Right-click the zip -> "Extract All..." -> type   C:\faceswap   -> Extract.
+- IMPORTANT: use C:\faceswap (or another path WITHOUT spaces).
+  Not the Desktop, Downloads or OneDrive folders (their paths often contain
+  spaces or get synced, which breaks the install).
+- You should now have C:\faceswap\setup_windows.bat (not C:\faceswap\faceswap_kit\...).
+  If there is an extra folder level, move the files up one level.
+
+STEP 3 - Install (one time, 10-30 minutes)
+- Open C:\faceswap and double-click  setup_windows.bat
+- If a blue box says "Windows protected your PC": click "More info" ->
+  "Run anyway". (It appears for any downloaded script.)
+- A black window shows the progress. It downloads Python, ffmpeg, the
+  graphics libraries and FaceFusion into C:\faceswap\tools. Let it finish.
+- It must end with  CHECK PASSED  and  SETUP DONE.
+  Press Y to start the studio right away.
+
+STEP 4 - Make a Short (the Studio)
+- Next times: double-click  studio_windows.bat  (keep the black window open).
+- Your browser opens the Face-Swap Studio (address http://127.0.0.1:7860).
+  Do the 5 tabs in order; each one tells you what to do next:
+    1 Get video      paste a link (YouTube, TikTok, Instagram...) or upload a
+                     file, tick "I own this video or have permission".
+    2 Cut            Set START / Set END, then "Cut this part".
+    3 Your face      add 10-20 clear photos of your face, "Check my photos".
+                     (No photos at hand? Test with C:\faceswap\example_faces\person_A)
+    4 Who to replace "Find people in this video", tick who gets your face.
+    5 Make it        "Test on one frame", then "Make my Short".
+- Finished videos are in C:\faceswap\output
+- The first swap downloads the AI models (~1-2 GB), so it takes longer once.
+
+IF SOMETHING GOES WRONG
+- "CHECK FAILED" with NVIDIA: update the driver (step 1), restart, run
+  setup_windows.bat again (it continues where it stopped).
+  Still failing: open a Command Prompt in C:\faceswap and run
+      setup_windows.bat directml
+  (works on any modern graphics card, a bit slower).
+- Setup stopped half-way (internet dropped etc.): just run it again.
+- Start completely fresh: delete C:\faceswap\tools and C:\faceswap\facefusion,
+  run setup_windows.bat again.
+- Antivirus blocks a download: allow it, or pause the antivirus during setup.
+- Browser does not open: go to http://127.0.0.1:7860 yourself.
+- Ask an AI for help: paste README_START_HERE.txt plus the exact error
+  message into ChatGPT / Claude. The README has a section written for AI.
+
+REMEMBER WHEN UPLOADING TO YOUTUBE: set "Altered or synthetic content" = Yes.

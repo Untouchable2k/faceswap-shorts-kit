@@ -1,0 +1,5 @@
+# Windows batch files are stored exactly as-is (CRLF), so "Download ZIP" works on Windows
+*.bat -text
+*.sh text eol=lf
+*.py text eol=lf
+*.jpg binary
